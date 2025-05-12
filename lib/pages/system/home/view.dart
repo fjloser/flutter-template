@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/common/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -27,9 +28,20 @@ class _HomeViewGetX extends GetView<HomeController> {
 
   // 主视图
   Widget _buildView() {
-    return const Center(
-      child: Text("HomePage"),
-    );
+    return Center(
+        child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: DecoratedBox(
+          decoration: BoxDecoration(border: Border.all(width: 1.rpx)),
+          child: SizedBox(
+            height: 200.rpx,
+            width: 750.rpx,
+            child: Text(
+              "HomePage",
+              style: TextStyle(fontSize: 32.rpx),
+            ),
+          )),
+    ));
   }
 
   @override

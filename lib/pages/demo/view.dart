@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/common/extension/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -9,11 +10,26 @@ class DemoPage extends GetView<DemoController> {
   // 主视图
   Widget _buildView() {
     return Center(
-      child: ElevatedButton(
-          onPressed: () {
-            Get.back();
-          },
-          child: const Text('返回')),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 100.px,
+            width: 100.px,
+            child:
+                DecoratedBox(decoration: BoxDecoration(border: Border.all())),
+          ),
+          SizedBox(
+              height: 100.0.rpx,
+              width: 100.rpx,
+              child: DecoratedBox(
+                  decoration: BoxDecoration(border: Border.all()))),
+          ElevatedButton(
+              onPressed: () {
+                Get.back();
+              },
+              child: const Text('返回')),
+        ],
+      ),
     );
   }
 

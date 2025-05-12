@@ -5,12 +5,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-import '../common/configs/app.dart';
-import '../common/i18n/index.dart';
-import '../common/routers/pages.dart';
-import '../common/style/easyloading.dart';
+import '../common/index.dart';
 import '../pages/system/splash/view.dart';
-import 'app_home/bindings.dart';
 import 'app_home/view.dart';
 import 'bindings.dart';
 
@@ -19,6 +15,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeFit.initialize();
     EasyLoadingTheme.initial();
     return GetMaterialApp(
       title: 'appTitle'.tr,

@@ -18,7 +18,7 @@ enum Platform {
 /// 系统设置
 class EnvConfig {
   /// 是否是app主体, 用于是否需要引导页或者广告页
-  static bool isAppMainPage = false;
+  static bool isAppMainPage = true;
 
   /// 环境标签
   static EnvTag envTag = EnvTag.dev;
