@@ -14,15 +14,18 @@ abstract class BaseRepository {
   Future<T?> httpRequest<T>(
       {required Future<Response> Function() future,
       required JsonCoverEntity coverEntity,
-      CancelToken? cancelToken}) async {
+      CancelToken? cancelToken,
+      bool loading = false}) async {
     T? model;
     Timer? timer;
     bool loadingShown = false;
     try {
-      timer = Timer(Duration(milliseconds: 500), () {
-        loadingShown = true;
-        EasyLoading.show();
-      });
+      if (loading) {
+        timer = Timer(Duration(milliseconds: 500), () {
+          loadingShown = true;
+          EasyLoading.show();
+        });
+      }
       Response response = await future();
       model = coverEntity(response.data);
     } on DioException catch (dioEx) {
@@ -43,5 +46,18 @@ abstract class BaseRepository {
 
   void handleError(DioException dioEx) {
     // TODO 实现错误处理
+  }
+
+  /// ✨ 判断某种异常是否可以重试
+  bool _shouldRetry(DioException error) {
+    switch (error.type) {
+      case DioExceptionType.connectionTimeout:
+      case DioExceptionType.sendTimeout:
+      case DioExceptionType.receiveTimeout:
+      case DioExceptionType.unknown:
+        return true;
+      default:
+        return false;
+    }
   }
 }

@@ -31,6 +31,6 @@ class SizeFit {
 
   static double setPx(num size) {
     // 返回物理像素对应的逻辑像素宽度，实现真正的“固定像素”
-    return size * (1 / dpr);
+    return size * px;
   }
 }

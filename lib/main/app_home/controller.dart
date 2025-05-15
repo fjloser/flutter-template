@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_template/common/api/test/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
