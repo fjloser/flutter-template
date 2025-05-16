@@ -18,6 +18,8 @@ dependencies:
   flutter_easyloading: ^3.0.5
   flutter_native_splash: ^2.4.4
   sentry_flutter: ^8.14.2
+  # AES加密
+  encrypt: ^5.0.3
 
 dev_dependencies:
   flutter_test:
